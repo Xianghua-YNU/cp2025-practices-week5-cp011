@@ -82,10 +82,24 @@ def analyze_step_dependence():
 
 
 if __name__ == "__main__":
-    # TODO: 完成主程序
-    # 提示：
-    # 1. 获取数据和拟合结果
-    # 2. 绘制实验数据点和理论曲线
-    # 3. 设置图形属性
-    # 4. 打印数据分析结果
-    pass
+    steps, msd, k = analyze_step_dependence()  # 计算均方位移数据
+
+    # 绘制实验数据点
+    plt.figure(figsize=(8, 6))  #
+    plt.scatter(steps, msd, color='b', label='实验数据')
+
+    # 绘制拟合曲线
+    plt.plot(steps, k * steps, color='r', linestyle='--', label=f'拟合: MSD = {k:.2f} * steps')
+
+    # 图像美化
+    plt.xlabel('步数 (N)')
+    plt.ylabel('均方位移 ⟨r²⟩')
+    plt.title('均方位移与步数的关系')
+    plt.legend()
+    plt.grid(True)
+
+    # 显示图像
+    plt.show()
+
+    # 打印拟合参数
+    print(f'拟合得到的比例系数 k ≈ {k:.2f}')
