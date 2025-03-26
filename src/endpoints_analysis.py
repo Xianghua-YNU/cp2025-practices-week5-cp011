@@ -50,53 +50,6 @@ def plot_endpoints_distribution(endpoints):
     plt.xlabel('X')
     plt.ylabel('Y')
 
-def analyze_x_distribution(endpoints):
-    """分析二维随机游走终点x坐标的统计特性
-    
-    对随机游走终点的x坐标进行统计分析，计算样本均值和样本方差，
-    并通过直方图和理论正态分布曲线可视化其分布特征。理论上，
-    大量随机游走的终点x坐标应该服从正态分布。
-
-    参数:
-        endpoints: 包含x和y坐标的元组 (x_coords, y_coords)
-            - x_coords: numpy数组，所有终点的x坐标
-            - y_coords: numpy数组，所有终点的y坐标
-    
-    返回:
-        tuple: (mean, variance)
-            - mean (float): x坐标的样本均值
-            - variance (float): x坐标的样本方差（使用n-1作为分母）
-            
-    示例:
-        >>> endpoints = random_walk_finals(1000, 1000)
-        >>> mean, var = analyze_x_distribution(endpoints)
-        >>> print(f"均值: {mean:.2f}, 方差: {var:.2f}")
-    """
-    x_coords = endpoints[0]  # 获取x坐标数组
-    
-    # 计算统计量
-    mean = np.mean(x_coords) #样本均值
-    var = np.var(x_coords, ddof=1) #样本方差
-    
-    # 绘制x坐标直方图
-    plt.hist(x_coords, bins=50, density=True, alpha=0.7)
-    
-    # 添加理论正态分布曲线
-    x = np.linspace(min(x_coords), max(x_coords), 100)
-    plt.plot(x, 1/np.sqrt(2*np.pi*var)*np.exp(-(x-mean)**2/(2*var)), 
-             'r-', label='Theoretical Normal Distribution')
-    
-    # 设置图形属性
-    plt.title('X-Coordinate Distribution Histogram')
-    plt.xlabel('X')
-    plt.ylabel('Frequency')
-    plt.legend()
-    
-    # 打印统计结果
-    print(f"Sample mean of X-coordinates: {mean:.2f}")
-    print(f"Sample variance of X-coordinates: {var:.2f}")
-    
-
 if __name__ == "__main__":
     np.random.seed(42)  # 设置随机种子以保证可重复性
     
