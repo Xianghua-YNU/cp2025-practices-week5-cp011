@@ -97,7 +97,6 @@ def analyze_x_distribution(endpoints):
     print(f"Sample variance of X-coordinates: {var:.2f}")
     
 
-
 if __name__ == "__main__":
     np.random.seed(42)  # 设置随机种子以保证可重复性
     
