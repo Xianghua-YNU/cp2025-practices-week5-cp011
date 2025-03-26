@@ -31,6 +31,7 @@ def random_walk_finals(num_steps, num_walks):
         x_finals[i] = np.sum(np.random.choice([-1,1],num_steps))
         y_finals[i] = np.sum(np.random.choice([-1,1],num_steps))
     return (x_finals,y_finals)
+    
 
 def plot_endpoints_distribution(endpoints):
     """绘制二维随机游走终点的空间分布散点图
@@ -89,7 +90,7 @@ def analyze_x_distribution(endpoints):
     # 3. 绘制直方图
     # 4. 添加理论正态分布曲线
     # 5. 设置图形属性并打印统计结果
-     x_coords = endpoints[0]  # 获取x坐标数组
+    x_coords = endpoints[0]  # 获取x坐标数组
     
     # 计算统计量
     mean = np.mean(x_coords) #样本均值
@@ -112,6 +113,7 @@ def analyze_x_distribution(endpoints):
     # 打印统计结果
     print(f"Sample mean of X-coordinates: {mean:.2f}")
     print(f"Sample variance of X-coordinates: {var:.2f}")
+   
 
 if __name__ == "__main__":
     np.random.seed(42)  # 设置随机种子以保证可重复性
