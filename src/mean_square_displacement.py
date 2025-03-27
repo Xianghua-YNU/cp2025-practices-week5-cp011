@@ -86,7 +86,7 @@ if __name__ == "__main__":
 
     '''绘制实验数据点'''
     plt.figure(figsize=(8, 6))  # 创建一个8×6英寸的图像窗口
-    plt.scatter(steps, msd, color='b', label='实验数据') # 使用散点图 (scatter) 绘制实验数据
+    plt.scatter(steps, msd, color='b', label='experimental data') # 使用散点图 (scatter) 绘制实验数据
                                                         # 步数steps与均方位移msd的图像
                                                         # 定点的颜色为蓝色，图例名称为“实验数据”
 
@@ -94,11 +94,11 @@ if __name__ == "__main__":
     绘制拟合曲线,以steps为横坐标，k*steps为纵坐标，曲线为红色虚线。图例名称为：“拟合:MSD = x *steps”
     其中x是一个接近2的两位小数
     '''
-    plt.plot(steps, k * steps, color='r', linestyle='--', label=f'拟合: MSD = {k:.2f} * steps')
+    plt.plot(steps, k * steps, color='r', linestyle='--', label=f'fitting: MSD = {k:.2f} * steps')
 
-    plt.xlabel('步数 (N)')  # 设置x轴标签为"步数 (N)"
-    plt.ylabel('均方位移 ⟨r²⟩')  # 设置y轴标签为"均方位移 ⟨r²⟩"
-    plt.title('均方位移与步数的关系')  # 设置图像标题为“均方位移与步数的关系”
+    plt.xlabel('steps (N)')  # 设置x轴标签为"步数 (N)"
+    plt.ylabel('mean square displacement ⟨r²⟩')  # 设置y轴标签为"均方位移 ⟨r²⟩"
+    plt.title('the relationship between the mean displacement and the number of steps')  # 设置图像标题为“均方位移与步数的关系”
     plt.legend()  # 显示图例
     plt.grid(True)  # 添加网格
     plt.show()  # 显示图像
